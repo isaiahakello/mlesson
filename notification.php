@@ -1,0 +1,32 @@
+<?php
+ ini_set("date.timezone", "Africa/Nairobi");
+ require_once "config.php";
+ require_once "functions.php";
+ $contents = file_get_contents("php://input");
+ $data = json_decode($contents,true);
+    $phone = trim(preg_replace("/[^0-9]/","",$data['sender_phone']));
+    $receiver = $data['business_number'];
+    $amount = $data['amount'];
+    //$currency = $data['currency'];
+    //$ser_ = $data['service_name'];
+    $f_name = $data['first_name'];
+    $mid_name = $data['middle_name'];
+    $l_name = $data['last_name'];
+    //$signature = $data['signature'];
+    //$ref = $data['transaction_reference'];
+    //$t_id = $data['internal_transaction_id'];
+    //$time_ = $data['transaction_timestamp'];
+    //$type = $data['transaction_type'];
+    $acc = $data['account_number'];
+    $shortcode = "21475";
+    $senderid = "MLesson";
+    $charge = "6";
+    $name = $f_name." ".$mid_name." ".$l_name;
+    $query = mysql_query("UPDATE customers SET balance = balance+$amount, name = '$name' WHERE number = '$phone'") or die(mysql_error());
+    //$base_string = "service_name=$ser_&business_number=$receiver&transaction_reference=$ref&internal_transaction_id=$t_id&transaction_timestamp=$time_&transaction_type=$type&account_number&sender_phone&first_name&middle_name&last_name&amount&currency";
+    //$symmetric_key = "4c0aae0606c51ec2021c75d16f88b2375023f7c4";
+    //$signature = Base64.encode(HMAC.digest(base_string, symmetric_key, SHA1 algorithm));
+    $return = array("status"=>"01", "description"=>"Accepted", "subscriber_message"=>"Message to send to subscriber" );
+ header('Content-Type: application/json');
+echo json_encode($return);
+?>

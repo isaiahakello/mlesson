@@ -1,0 +1,6 @@
+[23-Nov-2016 12:17:54 Africa/Nairobi] PHP Warning:  Invalid argument supplied for foreach() in /home/mlesson/public_html/application/su-edit.php on line 87
+[28-Nov-2016 16:14:06 Africa/Nairobi] PHP Warning:  Division by zero in /home/mlesson/public_html/application/subscribers.php on line 212
+[28-Nov-2016 17:28:05 Africa/Nairobi] PHP Warning:  Division by zero in /home/mlesson/public_html/application/subscribers.php on line 212
+[28-Nov-2016 17:31:48 Africa/Nairobi] PHP Warning:  Division by zero in /home/mlesson/public_html/application/subscribers.php on line 212
+[29-Nov-2016 09:01:56 Africa/Nairobi] PHP Warning:  Invalid argument supplied for foreach() in /home/mlesson/public_html/application/su-edit.php on line 87
+[29-Nov-2016 19:06:26 Africa/Nairobi] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/mlesson/public_html/application/config.php:9) in /home/mlesson/public_html/application/notification.php on line 30
